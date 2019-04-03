@@ -24,6 +24,8 @@ namespace myApp.Services
 
             if (results["weather"] != null)
             {
+                //JSON Data from http://api.openweathermap.org/data/2.5/weather?zip= + Zipcodes and key etc.
+                //Will display weather data from user entered zipcode
                 Weather weather = new Weather();
                 weather.Title = (string)results["name"];
                 weather.Temperature = (string)results["main"]["temp"] + " F";
