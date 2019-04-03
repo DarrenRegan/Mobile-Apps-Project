@@ -4,7 +4,7 @@ using System.Text;
 
 namespace myApp.Models
 {
-    class Weather
+    public class Weather
     {
         //Model for xaml code to bind to these values
         public string Title { get; set; } = " ";

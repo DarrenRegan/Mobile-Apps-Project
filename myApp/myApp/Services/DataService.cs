@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace myApp.Services
 {
-    class DataService
+    public class DataService
     {
         public static async Task<dynamic> GetDataFromService(string queryString)
         {
@@ -20,6 +20,8 @@ namespace myApp.Services
                 string json = response.Content.ReadAsStringAsync().Result;
                 data = JsonConvert.DeserializeObject(json);
             }
+
+            return data;
         }
     }
 }
