@@ -34,9 +34,12 @@ namespace myApp.Views
 
         private string GenerateRequestUri(string openWeatherMapEndpoint)
         {
+            //This will request the data using the full directory
+            //The request should look like this 
+            //"http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + key + "&units=imperial";
             string requestUri = openWeatherMapEndpoint;
             requestUri += $"?q={_cityEntry.Text}";
-            requestUri += "&units=imperial"; // or units=metric
+            requestUri += "&units=metric"; // or units=metric
             requestUri += $"&APPID={Constants.OpenWeatherMapAPIKey}";
             return requestUri;
         }
