@@ -11,21 +11,22 @@ using Xamarin.Forms.Xaml;
 
 namespace myApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class WeatherPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class WeatherPage : ContentPage
+    {
         RestService _restService;
 
-		public WeatherPage ()
-		{
-			InitializeComponent ();
+        public WeatherPage()
+        {
+            InitializeComponent();
             _restService = new RestService();
-		}
+        }
 
         async void OnGetWeatherButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
+                //Requests http://api.openweathermap.org/data/2.5/weather + API Key to get data
                 WeatherData weatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.OpenWeatherMapEndpoint));
                 BindingContext = weatherData;
             }
@@ -33,6 +34,11 @@ namespace myApp.Views
 
         private string GenerateRequestUri(string openWeatherMapEndpoint)
         {
-            throw new NotImplementedException();
+            string requestUri = openWeatherMapEndpoint;
+            requestUri += $"?q={_cityEntry.Text}";
+            requestUri += "&units=imperial"; // or units=metric
+            requestUri += $"&APPID={Constants.OpenWeatherMapAPIKey}";
+            return requestUri;
         }
     }
+}
