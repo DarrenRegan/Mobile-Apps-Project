@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:myApp.ViewModels"
+             xmlns:local="using:myApp.UWP"
+             x:Class="myApp.Views.WeatherPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:WeatherViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Weather App"
+                FontSize="30"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Location"
+                   />
+            <Label Text="{Binding Title}"
+                   />
+            
+            <Label Text="Temperature"
+                   />
+            <Label Text="{Binding Main.Temperature}"
+                   />
+
+            <Label Text="Wind Speed"
+                   />
+            <Label Text="{Binding Main.Speed}"
+                   />
+
+            <Label Text="Humidity"
+                   />
+            <Label Text="{Binding Main.Humidity}"
+                   />
+            
+
+        </StackLayout>
+    </ScrollView>
+
+
+    
+    
+</ContentPage>
