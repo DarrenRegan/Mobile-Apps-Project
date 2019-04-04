@@ -4,7 +4,8 @@
              xmlns:vm="clr-namespace:myApp.ViewModels"
              xmlns:local="using:myApp.UWP"
              xmlns:local1="clr-namespace:myApp.Services"
-             x:Class="myApp.Views.WeatherPage">
+             x:Class="myApp.Views.WeatherPage"
+             Title="{Binding Title}">
     
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,7 +14,9 @@
                 <Setter Property="FontSize" 
                         Value="Small" />
                 <Setter Property="TextColor" 
-                        Value="Gray" />
+                        Value="Black"/>
+                <Setter Property="Font"
+                        Value="Bold"/>
             </Style>
 
             <Style x:Key="labelResultStyle" 
@@ -60,8 +63,8 @@
                    Grid.Column="1"
                    Margin="5,0"
                    VerticalOptions="Center"
-                   BackgroundColor="DarkGray"
-                   TextColor="White"
+                   BackgroundColor="White"
+                   TextColor="Black"
                    Text="Galway" />
 
             <Button Grid.Row="1" 
