@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Reflection;
@@ -27,5 +27,19 @@ namespace myApp.Views
 		{
 			InitializeComponent ();
 		}
+
+        //SKPaint Methods
+
+        //
+
+
+        private void canvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)
+        {
+            SKSurface surface = e.Surface;
+            SKCanvas canvas = surface.Canvas;
+
+            canvas.Clear(SKColors.CornflowerBlue);
+
+        }
 	}
 }

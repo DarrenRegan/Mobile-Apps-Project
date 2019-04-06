@@ -2,6 +2,8 @@
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SkiaSharp;
+
 
 namespace myApp.Views
 {

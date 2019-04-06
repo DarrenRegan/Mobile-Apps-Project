@@ -8,3 +8,4 @@
 * sqlite-net-pcl
 * SkiaSharp
 * SkiaSharp.Views
+* SKiaSharp.Views.Forms

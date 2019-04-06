@@ -36,5 +36,19 @@
                 <views:WeatherPage />
             </x:Arguments>
         </NavigationPage>
+
+        <NavigationPage Title="Clock">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:SkiaClock />
+            </x:Arguments>
+        </NavigationPage>
+
+
+
     </TabbedPage.Children>
 </TabbedPage>
