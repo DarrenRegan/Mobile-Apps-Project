@@ -43,17 +43,55 @@ namespace myApp.Views
             IsAntialias = true
         };
 
-        //Dots for clock
         SKPaint whiteFillPaint = new SKPaint
         {
             Style = SKPaintStyle.Fill,
             Color = SKColors.White
         };
 
+        SKPaint blackStrokePaint = new SKPaint
+        {
+            Style = SKPaintStyle.Stroke,
+            Color = SKColors.Black,
+            StrokeWidth = 20,
+            StrokeCap = SKStrokeCap.Round
+        };
+
+
+
+        //SKPaths for Cat
+        SKPath catEarPath = new SKPath();
+        SKPath catEyePath = new SKPath();
+        SKPath catPupilPath = new SKPath();
+        SKPath catTailPath = new SKPath();
+
         //Constructor of main class
         public SkiaClock ()
 		{
 			InitializeComponent ();
+
+            //Paths of cat
+       
+            //Creates a triangle
+            catEarPath.MoveTo(0, 0);
+            catEarPath.LineTo(0, 75);
+            catEarPath.LineTo(100, 75);
+            catEarPath.Close();
+
+            //Cats eye using arcs
+            catEyePath.MoveTo(0, 0);
+            catEyePath.ArcTo(50, 50, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 50, 0);
+            catEyePath.ArcTo(50, 50, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 0, 0);
+            catEyePath.Close();
+
+            //Cats pupil using arcs
+            catPupilPath.MoveTo(25, -5);
+            catPupilPath.ArcTo(6, 6, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 25, 5);
+            catPupilPath.ArcTo(6, 6, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 25, -5);
+
+            //Cat tail using a curve
+            catTailPath.MoveTo(0, 100);
+            catTailPath.CubicTo(50, 200, 0, 250, -50, 200);
 
             //Starts a timer which the clock uses to move the hands
             Device.StartTimer(TimeSpan.FromSeconds(1f / 60), () =>
@@ -70,21 +108,25 @@ namespace myApp.Views
             SKSurface surface = e.Surface;
             SKCanvas canvas = surface.Canvas;
 
+            //Clear to make a blank canvas
+            canvas.Clear(SKColors.CornflowerBlue);
+
             //Variables for pixels from the event arguments
             int width = e.Info.Width;
             int height = e.Info.Height;
 
+            //Clear to make a blank canvas
+            canvas.Clear(SKColors.CornflowerBlue);
             //Apply Transforms
             canvas.Translate(width / 2, height / 2);
-            canvas.Scale(width / 200f);
+            //canvas.Scale(width / 200f);
+            canvas.Scale(Math.Min(width / 210f, height / 520f));
 
             //Get DateTime
             DateTime dateTime = DateTime.Now;
 
-
-
-            //Clear to make a blank canvas
-            canvas.Clear(SKColors.CornflowerBlue);
+            //Cat Head
+            canvas.DrawCircle(0, -160, 75, blackFillPaint);
 
             //Clock Background, centre at 0,0 radius = 100
             //Draws Black Circle
