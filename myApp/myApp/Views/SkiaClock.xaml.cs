@@ -25,12 +25,22 @@ namespace myApp.Views
 	public partial class SkiaClock : ContentPage
 	{
 
-        //SKPaint Methods/Fields
+        //SKPaint Fields
 
         SKPaint blackFillPaint = new SKPaint
         {
             Style = SKPaintStyle.Fill,
             Color = SKColors.Black
+        };
+
+        //Clock hands
+        SKPaint whiteStrokePaint = new SKPaint
+        {
+            Style = SKPaintStyle.Stroke,
+            Color = SKColors.White,
+            StrokeWidth = 2,
+            StrokeCap = SKStrokeCap.Round,
+            IsAntialias = true
         };
 
         //Main
@@ -59,14 +69,41 @@ namespace myApp.Views
             canvas.Translate(width / 2, height / 2);
             canvas.Scale(width / 200f);
 
+            //Get DateTime
+            DateTime dateTime = DateTime.Now;
+
+
 
             //Clear to make a blank canvas
             canvas.Clear(SKColors.CornflowerBlue);
 
-
-
             //Clock Background, centre at 0,0 radius = 100
+            //Draws Black Circle
             canvas.DrawCircle(0, 0, 100, blackFillPaint);
+
+            //Hour Hand
+            //Rotate Hand 30 Degrees per hour + 1 degree for every 2 minutes
+            canvas.Save(); //Call save before transforms
+            canvas.RotateDegrees(30 * dateTime.Hour + dateTime.Minute / 2f);
+            whiteStrokePaint.StrokeWidth = 15;
+            canvas.DrawLine(0, 0, 0, -50, whiteStrokePaint); //Pos 12 o'Clock
+            canvas.Restore(); //Call Restore after done
+
+            //Minute Hand
+            //Rotate 6 Degrees per minute 1 degree every 1 second
+            canvas.Save();
+            canvas.RotateDegrees(6 * dateTime.Minute + dateTime.Second / 10f);
+            whiteStrokePaint.StrokeWidth = 10;
+            canvas.DrawLine(0, 0, 0, -70, whiteStrokePaint);
+            canvas.Restore();
+
+            //Second Hand
+            canvas.Save();
+            float seconds = dateTime.Second + dateTime.Millisecond / 1000f;
+            canvas.RotateDegrees(6 * seconds);
+            whiteStrokePaint.StrokeWidth = 2;
+            canvas.DrawLine(0, 10, 0, -80, whiteStrokePaint);
+            canvas.Restore();
 
         }
 	}
