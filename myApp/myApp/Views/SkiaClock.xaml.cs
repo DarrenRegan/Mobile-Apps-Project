@@ -57,6 +57,12 @@ namespace myApp.Views
             StrokeCap = SKStrokeCap.Round
         };
 
+        SKPaint greenFillPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = SKColors.Green
+        };
+
 
 
         //SKPaths for Cat
@@ -118,6 +124,7 @@ namespace myApp.Views
 
             //Clear to make a blank canvas
             canvas.Clear(SKColors.CornflowerBlue);
+
             //Apply Transforms
             canvas.Translate(width / 2, height / 2);
             //canvas.Scale(width / 200f);
@@ -146,7 +153,7 @@ namespace myApp.Views
                 //Eyes
                 canvas.Save();
                 canvas.Translate(10, -170);
-                canvas.DrawPath(catEarPath, whiteFillPaint);
+                canvas.DrawPath(catEyePath, whiteFillPaint);
                 canvas.DrawPath(catPupilPath, blackFillPaint);
                 canvas.Restore();
 
