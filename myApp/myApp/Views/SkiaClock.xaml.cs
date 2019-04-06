@@ -88,6 +88,7 @@ namespace myApp.Views
             catPupilPath.MoveTo(25, -5);
             catPupilPath.ArcTo(6, 6, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 25, 5);
             catPupilPath.ArcTo(6, 6, 0, SKPathArcSize.Small, SKPathDirection.Clockwise, 25, -5);
+            catPupilPath.Close();
 
             //Cat tail using a curve
             catTailPath.MoveTo(0, 100);
@@ -127,6 +128,40 @@ namespace myApp.Views
 
             //Cat Head
             canvas.DrawCircle(0, -160, 75, blackFillPaint);
+
+            //Draw Cat Ears and Eyes
+            //When i = 0, scale transform has an x cord of -1 (so it flips everything around the verticle axis
+            //When i = 1, scale transform will be normal
+            for (int i = 0; i < 2; i++)
+            {
+                canvas.Save();
+                canvas.Scale(2 * i - 1, 1);
+
+                //Ears
+                canvas.Save();
+                canvas.Translate(-65, -255);
+                canvas.DrawPath(catEarPath, blackFillPaint);
+                canvas.Restore();
+
+                //Eyes
+                canvas.Save();
+                canvas.Translate(10, -170);
+                canvas.DrawPath(catEarPath, whiteFillPaint);
+                canvas.DrawPath(catPupilPath, blackFillPaint);
+                canvas.Restore();
+
+                //Whispers
+                canvas.DrawLine(10, -120, 100, -100, whiteStrokePaint);
+                canvas.DrawLine(10, -125, 100, -120, whiteStrokePaint);
+                canvas.DrawLine(10, -130, 100, -140, whiteStrokePaint);
+                canvas.DrawLine(10, -135, 100, -160, whiteStrokePaint);
+
+                canvas.Restore();
+
+            }
+
+            //Draw Tail
+            canvas.DrawPath(catTailPath, blackStrokePaint);
 
             //Clock Background, centre at 0,0 radius = 100
             //Draws Black Circle
