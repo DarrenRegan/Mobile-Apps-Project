@@ -43,16 +43,25 @@ namespace myApp.Views
             IsAntialias = true
         };
 
-        //Main
+        //Dots for clock
+        SKPaint whiteFillPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = SKColors.White
+        };
+
+        //Constructor of main class
         public SkiaClock ()
 		{
 			InitializeComponent ();
-		}
 
-
-
-        
-
+            //Starts a timer which the clock uses to move the hands
+            Device.StartTimer(TimeSpan.FromSeconds(1f / 60), () =>
+            {
+                canvasView.InvalidateSurface();
+                return true;
+            });
+        }
 
         private void canvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)
         {
@@ -81,6 +90,14 @@ namespace myApp.Views
             //Draws Black Circle
             canvas.DrawCircle(0, 0, 100, blackFillPaint);
 
+            //Hour and Minute Marks using dots
+            //For every 6 degrees draw a dot, so 60 dots
+            for (int angle = 0; angle < 360; angle += 6)
+            {
+                canvas.DrawCircle(0, -90, angle % 30 == 0 ? 4 : 2, whiteFillPaint);
+                canvas.RotateDegrees(6);
+            }
+
             //Hour Hand
             //Rotate Hand 30 Degrees per hour + 1 degree for every 2 minutes
             canvas.Save(); //Call save before transforms
@@ -90,7 +107,7 @@ namespace myApp.Views
             canvas.Restore(); //Call Restore after done
 
             //Minute Hand
-            //Rotate 6 Degrees per minute 1 degree every 1 second
+            //Rotate 6 Degrees per minute 1 degree every 10 seconds
             canvas.Save();
             canvas.RotateDegrees(6 * dateTime.Minute + dateTime.Second / 10f);
             whiteStrokePaint.StrokeWidth = 10;

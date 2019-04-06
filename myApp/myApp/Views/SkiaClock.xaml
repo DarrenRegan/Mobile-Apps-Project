@@ -11,6 +11,6 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <skia:SKCanvasView x:Name="cavnasView"
+    <skia:SKCanvasView x:Name="canvasView"
                        PaintSurface="canvasView_PaintSurface" />
 </ContentPage>
