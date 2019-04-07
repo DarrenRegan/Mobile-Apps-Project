@@ -202,6 +202,18 @@ namespace myApp.Views
 
             }
 
+            //Moving the tail
+            //Calcs time that moves Sin from -1 to 1 every second
+            float t = (float)Math.Sin((dateTime.Second % 2 + dateTime.Millisecond / 1000.0) * Math.PI); 
+            //Recreates Path for creating the tail
+            //But this time the coordinates are based the on the current time instead of a fixed value
+            catTailPath.Reset();
+            catTailPath.MoveTo(0, 100);
+            SKPoint point1 = new SKPoint(-50 * t, 200);
+            SKPoint point2 = new SKPoint(0, 250 - Math.Abs(50 * t));
+            SKPoint point3 = new SKPoint(50 * t, 250 - Math.Abs(75 * t));
+            catTailPath.CubicTo(point1, point2, point3);
+
             //Draw Tail
             canvas.DrawPath(catTailPath, blackStrokePaint);
 
