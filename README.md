@@ -1,7 +1,7 @@
 # Darren Regan - G00326934 - Mobile Apps Project
 
-The Goal of this project is to learn how to apply a Weather API, Graphics Programming and some other things that i would like to know how to apply in c#/xamarin environment
-In the previous semester we done some API's & Rest using Angular and in Graphics Programming we used Javascript to apply 2D graphics
+The Goal of this project is to learn how to apply a Weather API, Graphics Programming and some other things that i would like to know how to apply in c#/xamarin environment.
+In the previous semester we done some API's & Rest using Angular and in Graphics Programming we used Javascript to apply 2D graphics.
 I thought this would be very useful to learn for 4th year as i may use Xamarin for my 4th Year Project
 
 ## Prerequisites
@@ -32,7 +32,7 @@ Once opened build project to see if there are build errors related to missing Nu
 * Newtonsoft.JSON
 * Xamarin.Forms
 * Microsoft.CSharp
-* NetStanard.Libary
+* NetStandard.Libary
 * sqlite-net-pcl
 * SkiaSharp
 * SkiaSharp.Views.Forms
@@ -45,7 +45,9 @@ string OpenWeatherMapAPIKey = " ";
 ```
 
 ## SkiaGrapics
- ### I picked SkiaGraphics because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
+
+I picked SkiaGraphics because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
+
  * Graphics System: SkiaGraphics Engine C++ project made by Google
  * Uses Immediate mode graphics system - When your program calls graphics drawing functions the graphics are quickly rendered
  * Alternative: Retain mode graphics system where graphics are persistant and render whenever necessary
@@ -55,64 +57,21 @@ string OpenWeatherMapAPIKey = " ";
  * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shader
 
 
+## Testing
 
-## Getting Started
+Testing & Test Plan are provided in the excel file included in the repo called Test Plan.xlsx
+This test plan includes testing Devices and all of the features in the app
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-
-
-
-## Runni
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+* Windows 10 Home & Pro edition - Laptop & Desktop
+* Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
+* Andriod Phone 4.4 Kitkat
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Xamarin](https://visualstudio.microsoft.com/xamarin/)
 
-## Contributing
+## Author
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* [Darren Regan](https://github.com/DarrenRegan)
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
