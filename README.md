@@ -53,9 +53,9 @@ This test plan includes testing Devices and all of the features in the app
 * Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
 * Andriod Phone 4.4 Kitkat
 
-## SkiaGrapics
+## SkiaSharp
 
-I picked SkiaGraphics because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
+I picked SkiaSharp because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
 
  * Graphics System: SkiaGraphics Engine C++ project made by Google
  * Uses Immediate mode graphics system - When your program calls graphics drawing functions the graphics are quickly rendered
@@ -64,7 +64,7 @@ I picked SkiaGraphics because it looked like something we done in Graphics Progr
  * Draw Graphics on a SKCancasView or a SKGLView
  * SKCanvas is used to call all drawing functions such as Translates, Scales, Rotations etc.
  * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shader
- * [SkiaSharp Microsoft guide](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
+ * [SkiaSharp Microsoft Articles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
 
 
 ## Built With

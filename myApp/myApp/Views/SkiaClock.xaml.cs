@@ -63,6 +63,19 @@ namespace myApp.Views
             Color = SKColors.Green
         };
 
+        SKPaint goldFillPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = SKColors.Gold
+        };
+
+        SKPaint silverFillPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = SKColors.Silver
+        };
+
+
 
 
         //SKPaths for Cat
@@ -70,6 +83,15 @@ namespace myApp.Views
         SKPath catEyePath = new SKPath();
         SKPath catPupilPath = new SKPath();
         SKPath catTailPath = new SKPath();
+
+        //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/curves/path-data
+        //Scalable Vector Graphics - Hour & Minute hand path using curves
+        //Each String is a one letter command or coordinates
+        //M = Move, C = Cubic Bezier Line, L = Line, Z = Closes path at the end
+        SKPath hourHandPath = SKPath.ParseSvgPathData(
+            "M 0 -60 C 0 -30 20 -30 5 -20 L 5 0 C 5 7.5 -5 7.5 -5 0 L -5 -20 C -20 -30 0 -30 0 -60");
+        SKPath minuteHandPath = SKPath.ParseSvgPathData(
+            "M 0 -80 C 0 -75 0 -70 2.5 -60 L 2.5 0 C 2.5 5 -2.5 5 -2.5 0 L -2.5 -60 C 0 -70 0 -75 0 -80");
 
         //Constructor of main class
         public SkiaClock ()
@@ -186,16 +208,16 @@ namespace myApp.Views
             //Rotate Hand 30 Degrees per hour + 1 degree for every 2 minutes
             canvas.Save(); //Call save before transforms
             canvas.RotateDegrees(30 * dateTime.Hour + dateTime.Minute / 2f);
-            whiteStrokePaint.StrokeWidth = 15;
-            canvas.DrawLine(0, 0, 0, -50, whiteStrokePaint); //Pos 12 o'Clock
+            canvas.DrawPath(hourHandPath, silverFillPaint);
+            canvas.DrawPath(hourHandPath, whiteStrokePaint);
             canvas.Restore(); //Call Restore after done
 
             //Minute Hand
             //Rotate 6 Degrees per minute 1 degree every 10 seconds
             canvas.Save();
             canvas.RotateDegrees(6 * dateTime.Minute + dateTime.Second / 10f);
-            whiteStrokePaint.StrokeWidth = 10;
-            canvas.DrawLine(0, 0, 0, -70, whiteStrokePaint);
+            canvas.DrawPath(minuteHandPath, silverFillPaint);
+            canvas.DrawPath(minuteHandPath, whiteStrokePaint);
             canvas.Restore();
 
             //Second Hand
