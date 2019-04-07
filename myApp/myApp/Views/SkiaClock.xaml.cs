@@ -75,8 +75,11 @@ namespace myApp.Views
             Color = SKColors.Silver
         };
 
-
-
+        //Background image
+        SKPaint backgroundFillPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill
+        };
 
         //SKPaths for Cat
         SKPath catEarPath = new SKPath();
@@ -122,6 +125,16 @@ namespace myApp.Views
             catTailPath.MoveTo(0, 100);
             catTailPath.CubicTo(50, 200, 0, 250, -50, 200);
 
+            //Create Shader - Bring in background image
+            Assembly assembly = GetType().GetTypeInfo().Assembly;
+            using (Stream stream = assembly.GetManifestResourceStream("myApp.sandClockBackground.png"))
+            using (SKManagedStream skStream = new SKManagedStream(stream))
+            using (SKBitmap bitmap = SKBitmap.Decode(skStream))
+            using (SKShader shader = SKShader.CreateBitmap(bitmap, SKShaderTileMode.Mirror, SKShaderTileMode.Mirror))
+            {
+                backgroundFillPaint.Shader = shader;
+            }
+
             //Starts a timer which the clock uses to move the hands
             Device.StartTimer(TimeSpan.FromSeconds(1f / 60), () =>
             {
@@ -144,8 +157,8 @@ namespace myApp.Views
             int width = e.Info.Width;
             int height = e.Info.Height;
 
-            //Clear to make a blank canvas
-            canvas.Clear(SKColors.CornflowerBlue);
+            //Paint background with an image
+            canvas.DrawPaint(backgroundFillPaint);
 
             //Apply Transforms
             canvas.Translate(width / 2, height / 2);

@@ -63,7 +63,7 @@ I picked SkiaSharp because it looked like something we done in Graphics Programm
  * Used for 2D graphics and used in Google Chrome, Firefox and Android
  * Draw Graphics on a SKCancasView or a SKGLView
  * SKCanvas is used to call all drawing functions such as Translates, Scales, Rotations etc.
- * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shader
+ * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shaders
  * [SkiaSharp Microsoft Articles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
 
 
