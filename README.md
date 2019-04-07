@@ -44,6 +44,15 @@ Once opened build project to see if there are build errors related to missing Nu
 string OpenWeatherMapAPIKey = " ";
 ```
 
+## Testing
+
+Testing & Test Plan are provided in the excel file included in the repo called Test Plan.xlsx
+This test plan includes testing Devices and all of the features in the app
+
+* Windows 10 Home & Pro edition - Laptop & Desktop
+* Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
+* Andriod Phone 4.4 Kitkat
+
 ## SkiaGrapics
 
 I picked SkiaGraphics because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
@@ -55,16 +64,8 @@ I picked SkiaGraphics because it looked like something we done in Graphics Progr
  * Draw Graphics on a SKCancasView or a SKGLView
  * SKCanvas is used to call all drawing functions such as Translates, Scales, Rotations etc.
  * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shader
+ * [SkiaSharp Microsoft guide](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
 
-
-## Testing
-
-Testing & Test Plan are provided in the excel file included in the repo called Test Plan.xlsx
-This test plan includes testing Devices and all of the features in the app
-
-* Windows 10 Home & Pro edition - Laptop & Desktop
-* Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
-* Andriod Phone 4.4 Kitkat
 
 ## Built With
 
