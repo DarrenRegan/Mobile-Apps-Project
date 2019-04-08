@@ -19,7 +19,6 @@ namespace myApp.Services
             //CreateTable creates a table called QuickNotes
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<QuickNotes>().Wait();
-
         }
 
         public Task<List<QuickNotes>> GetItemAsync() => database.Table<QuickNotes>().ToListAsync();

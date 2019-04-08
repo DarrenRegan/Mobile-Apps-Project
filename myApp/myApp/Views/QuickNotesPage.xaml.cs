@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,25 @@ namespace myApp.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        async void OnSaveClicked(object sender, EventArgs e)
+        {
+            var todoItem = (QuickNotes)BindingContext;
+            await App.Database.SaveItemAsync(todoItem);
+            await Navigation.PopAsync();
+        }
+
+        async void OnDeleteClicked(object sender, EventArgs e)
+        {
+            var todoItem = (QuickNotes)BindingContext;
+            await App.Database.DeleteItemAsync(todoItem);
+            await Navigation.PopAsync();
+        }
+
+        async void OnCancelClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+    }
 }
