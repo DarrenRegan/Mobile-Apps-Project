@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="myApp.Views.AboutPage"
              xmlns:vm="clr-namespace:myApp.ViewModels"
-             Title="{Binding Title}">
+             >
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
@@ -69,4 +69,5 @@
             </StackLayout>
         </ScrollView>
     </Grid>
+
 </ContentPage>

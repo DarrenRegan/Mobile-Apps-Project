@@ -4,6 +4,7 @@
             xmlns:views="clr-namespace:myApp.Views"
             x:Class="myApp.Views.MainPage">
     <TabbedPage.Children>
+        
         <NavigationPage Title="Browse">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

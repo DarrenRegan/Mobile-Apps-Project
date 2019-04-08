@@ -11,8 +11,9 @@ namespace myApp.Models
         //ID is a unique ID with Primary key and an auto-increment
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Note { get; set; }
-        public DateTime CreatedTime { get; set; }
+        public string Name { get; set; }
+        public string Notes { get; set; }
+        public bool Done { get; set; }
 
         public QuickNotes()
         {

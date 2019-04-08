@@ -141,6 +141,8 @@ namespace myApp.Views
                 canvasView.InvalidateSurface();
                 return true;
             });
+
+            
         }
 
         private void canvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)

@@ -10,15 +10,14 @@ namespace myApp.Services
 {
     public class QuickNotesDataBase
     {
-        private SQLiteConnection _connection;
-        private DateTime CreatedTime;
+        readonly SQLiteAsyncConnection database;
 
-        public QuickNotesDataBase()
+        public QuickNotesDataBase(string dbPath)
         {
             //Implements SQLiteInterface and calls GetConnection method
             //CreateTable creates a table called QuickNotes
-            _connection = DependencyService.Get<SQLiteInterface>().GetConnection();
-            _connection.CreateTable<QuickNotes>();
+            database = new SQLiteAsyncConnection(dbPath);
+            database.CreateTableAsync<QuickNotes>().Wait();
 
         }
 
