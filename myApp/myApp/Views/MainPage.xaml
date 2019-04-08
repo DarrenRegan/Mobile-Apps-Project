@@ -4,6 +4,7 @@
             xmlns:views="clr-namespace:myApp.Views"
             x:Class="myApp.Views.MainPage">
     <TabbedPage.Children>
+        
         <NavigationPage Title="Clock">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -12,6 +13,29 @@
             </NavigationPage.Icon>
             <x:Arguments>
                 <views:SkiaClock />
+            </x:Arguments>
+        </NavigationPage>
+        
+
+        <NavigationPage Title="Weather">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:WeatherPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Webview">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:WebViewPage />
             </x:Arguments>
         </NavigationPage>
 
@@ -36,18 +60,6 @@
                 <views:AboutPage />
             </x:Arguments>
         </NavigationPage>-->
-
-        <NavigationPage Title="Weather">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:WeatherPage />
-            </x:Arguments>
-        </NavigationPage>
-
 
 
 

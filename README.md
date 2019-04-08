@@ -38,7 +38,7 @@ Once opened build project to see if there are build errors related to missing Nu
 * SkiaSharp.Views.Forms
 ```
 
-4. Get API Key if you want to use the app for your own use. https://openweathermap.org/appid follow instructions and enter your API key in constants.cs
+4. [DONT HAVE TO DO] Get API Key if you want to use the app for your own use. https://openweathermap.org/appid follow instructions and enter your API key in constants.cs
 
 ```
 string OpenWeatherMapAPIKey = " ";
