@@ -5,6 +5,7 @@ using System.Text;
 using Xamarin.Forms;
 using System.Linq;
 using myApp.Models;
+using System.Threading.Tasks;
 
 namespace myApp.Services
 {
@@ -21,28 +22,33 @@ namespace myApp.Services
 
         }
 
-        public IEnumerable<QuickNotes> GetNotes()
+        public Task<List<QuickNotes>> GetItemAsync() => database.Table<QuickNotes>().ToListAsync();
+
+        public Task<List<QuickNotes>> GetItemsNotDoneAsync() => database.QueryAsync<QuickNotes>("SELECT * FROM [QuickNotes] WHERE [Done] = 0");
+
+        public Task<QuickNotes> GetItemAsync(int id) => database.Table<QuickNotes>().Where(i => i.ID == id).FirstOrDefaultAsync();
+
+        public Task<int> SaveItemAsync(QuickNotes item)
         {
-            return (from t in _connection.Table<QuickNotes>() select t).ToList();
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
+            if (item.ID != 0)
+            {
+                return database.UpdateAsync(item);
+            }
+            else
+            {
+                return database.InsertAsync(item);
+            }
         }
 
-        public QuickNotes GetNote(int id)
+        public Task<int> DeleteItemAsync(QuickNotes item)
         {
-            return _connection.Table<QuickNotes>().FirstOrDefault(t => t.ID == id);
+            return database.DeleteAsync(item);
         }
-
-        public void DeleteNote(int id)
-        {
-            _connection.Delete<QuickNotes>(id);
-        }
-
-        public void AddNote(string note) {
-            var newNote = new QuickNotes{
-                Note = note,
-                CreatedTime = DateTime.Now
-            };
-            _connection.Insert(newNote);
-        }//AddNote
        
     }
 }//myAPP
