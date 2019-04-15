@@ -53,6 +53,8 @@ This test plan includes testing Devices and all of the features in the app
 * Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
 * Andriod Phone 4.4 Kitkat
 
+## App Info
+
 ## SkiaSharp
 
 I picked SkiaSharp because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
