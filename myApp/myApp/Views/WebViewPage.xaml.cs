@@ -23,5 +23,17 @@ namespace myApp.Views
             moodle.Source = "https://learnonline.gmit.ie";
         }
 
+        async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            if (moodle.CanGoBack)
+            {
+                moodle.GoBack();
+            }
+            else
+            {
+                await Navigation.PopAsync(); // closes the in-app browser view.
+            }
+        }
+
     }
 }

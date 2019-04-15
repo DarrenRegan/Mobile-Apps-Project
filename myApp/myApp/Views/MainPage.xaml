@@ -15,7 +15,7 @@
                 <views:SkiaClock />
             </x:Arguments>
         </NavigationPage>
-        
+
 
         <NavigationPage Title="Weather">
             <NavigationPage.Icon>
