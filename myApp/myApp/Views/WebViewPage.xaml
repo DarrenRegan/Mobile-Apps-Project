@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="myApp.Views.WebViewPage">
 
-
-
-    <StackLayout Margin="20">
+    <StackLayout Margin="10">
         <StackLayout Orientation="Horizontal">
-            <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="OnBackButtonClicked" />
+            <Button Text="Back" HorizontalOptions="Start" Clicked="OnBackButtonClicked" />
+            <Button Text="Foward" HorizontalOptions="Start" Clicked="OnForwardButtonClicked" />
+            <Button Text="Reload" HorizontalOptions="Start" Clicked="OnReloadButtonClicked" />
         </StackLayout>
-        <!-- WebView needs to be given height and width request within layouts to render. -->
-        <WebView x:Name="moodle" WidthRequest="1000" HeightRequest="1000" />
+        <WebView x:Name="moodle" WidthRequest="1500" HeightRequest="1500"/>
     </StackLayout>
 
 </ContentPage>

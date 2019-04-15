@@ -23,6 +23,11 @@ namespace myApp.Views
             moodle.Source = "https://learnonline.gmit.ie";
         }
 
+        /// <summary>
+        /// When user clicks back button in webview navPage will go back one page. User can go back all the way to start with multiple press
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnBackButtonClicked(object sender, EventArgs e)
         {
             if (moodle.CanGoBack)
@@ -35,5 +40,27 @@ namespace myApp.Views
             }
         }
 
+        /// <summary>
+        /// When User clicks reload NavPage will reload the current page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnReloadButtonClicked(object sender, EventArgs e)
+        {
+            moodle.Reload();
+        }
+
+        /// <summary>
+        /// When user clicks foward NavPage should go foward one page using CanGoFoward & GoFoward() methods
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnForwardButtonClicked(object sender, EventArgs e)
+        {
+            if (moodle.CanGoForward)
+            {
+                moodle.GoForward();
+            }
+        }
     }
 }
