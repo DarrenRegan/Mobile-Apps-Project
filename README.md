@@ -55,6 +55,34 @@ This test plan includes testing Devices and all of the features in the app
 
 ## App Info
 
+## WebView
+
+I added a WebView to see how well it would work on mobile devices as i believe WebViews are used in mobile app's for purchasing to get out of high cut in sales that apple and google take when you use there payment methods. Spotify among other apps would only allow an in app webview to make purchases for this reason.
+
+* WebView is quite basic using a [OnAppearing()](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.page.onappearing?view=xamarin-forms) method to load in url which is set to learnonline.gmit.ie before the page is visible
+* Back Navigation was added using GoBack() Method, it uses the property CanGoBack if true it will call goBack to last visited page
+* Foward Navigation was added usign GoFoward() Method, it uses the property CanGoFoward if true it will call goFoward to navigate to next visited page
+* Reload Navigation is simply calling the WebViewSource which is called moodle and add .reload() to it ie. moodle.reload()
+
+Example of Back & Forward Nav
+```
+        async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            if (moodle.CanGoBack)
+            {
+                moodle.GoBack();
+            }
+        void OnForwardButtonClicked
+        {
+            if (moodle.CanGoForward)
+            {
+                moodle.GoForward();
+            }
+
+```
+
+* [WebView Microsoft Articles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/webview?tabs=windows#navigation) (Goes indepth into WebViews showing multiple different implementaions, like javascript)
+
 ## SkiaSharp
 
 I picked SkiaSharp because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future

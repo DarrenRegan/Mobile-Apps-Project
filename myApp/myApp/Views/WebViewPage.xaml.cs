@@ -23,6 +23,8 @@ namespace myApp.Views
             moodle.Source = "https://learnonline.gmit.ie";
         }
 
+        //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/webview?tabs=windows#navigation
+
         /// <summary>
         /// When user clicks back button in webview navPage will go back one page. User can go back all the way to start with multiple press
         /// </summary>
