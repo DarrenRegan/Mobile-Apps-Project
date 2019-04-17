@@ -53,7 +53,29 @@ This test plan includes testing Devices and all of the features in the app
 * Andriod Emulator 8.1 API 27 & 9.0 in Visual Studio
 * Andriod Phone 4.4 Kitkat
 
-## App Info
+## Weather API/JSON DATA
+
+Using "http://api.openweathermap.org/data/2.5/weather" to access the weather api using a GET request.
+the request has the structure of"http://api.openweathermap.org/data/2.5/weather" ?zip=" + zipCode + ",us&appid=" + key + "&units=metric" in a browser url
+
+Example URL request which is called when user press Get Weather Button
+```
+        private string GenerateRequestUri(string openWeatherMapEndpoint)
+        {
+            //This will request the data using the full directory
+            //The request should look like this 
+            //"http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + key + "&units=metric";
+            string requestUri = openWeatherMapEndpoint;
+            requestUri += $"?q={_cityEntry.Text}";
+            requestUri += "&units=metric"; // or units=metric
+            requestUri += $"&APPID={Constants.OpenWeatherMapAPIKey}";
+            return requestUri;
+        }
+``` 
+
+* Uses newtonsoft.json
+* RestService makes a Httpclient request to website, if website returns a status code between 200-299 you will then receive the JSON data
+* Json Data will then be deserialized and added to WeatherData which is used in Mainpage.xaml to receive JSON data to display on user button clicked event  
 
 ## WebView
 
@@ -86,6 +108,62 @@ Example of Back & Forward Nav
 ## SkiaSharp
 
 I picked SkiaSharp because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
+Almost all the code is commented with what it does, i added extra lines to code bits that were hard to understand at first and required googling/videos to understand
+A example of this is SKPath.ParseSvgPathData for that clock hands, you can set the variables for placing hand, movement speed of hand etc
+
+Example SKPath.ParseSvgPathData
+```
+        //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/curves/path-data
+        //Scalable Vector Graphics - Hour & Minute hand path using curves
+        //Each String is a one letter command or coordinates
+        //M = Move, C = Cubic Bezier Line, L = Line, Z = Closes path at the end
+        SKPath hourHandPath = SKPath.ParseSvgPathData(
+            "M 0 -60 C 0 -30 20 -30 5 -20 L 5 0 C 5 7.5 -5 7.5 -5 0 L -5 -20 C -20 -30 0 -30 0 -60");
+        SKPath minuteHandPath = SKPath.ParseSvgPathData(
+            "M 0 -80 C 0 -75 0 -70 2.5 -60 L 2.5 0 C 2.5 5 -2.5 5 -2.5 0 L -2.5 -60 C 0 -70 0 -75 0 -80");
+
+```
+
+In our Graphics Programming module last semester we need something quite similar to SkiaSharp using javascript
+This code is almost identical to what we did in javascript so it's quite easy to do
+Everything else is commented apprioately for what it draws, rotates etc.
+
+Example of Drawing Cat Ears, Whispers and Eyes
+```
+//Draw Cat Ears and Eyes
+            //When i = 0, scale transform has an x cord of -1 (so it flips everything around the verticle axis
+            //When i = 1, scale transform will be normal
+            for (int i = 0; i < 2; i++)
+            {
+                canvas.Save();
+                canvas.Scale(2 * i - 1, 1);
+
+                //Ears
+                canvas.Save();
+                canvas.Translate(-65, -255);
+                canvas.DrawPath(catEarPath, blackFillPaint);
+                canvas.Restore();
+
+                //Eyes
+                canvas.Save();
+                canvas.Translate(10, -170);
+                canvas.DrawPath(catEyePath, whiteFillPaint);
+                canvas.DrawPath(catPupilPath, blackFillPaint);
+                canvas.Restore();
+
+                //Whispers
+                canvas.DrawLine(10, -120, 100, -100, whiteStrokePaint);
+                canvas.DrawLine(10, -125, 100, -120, whiteStrokePaint);
+                canvas.DrawLine(10, -130, 100, -140, whiteStrokePaint);
+                canvas.DrawLine(10, -135, 100, -160, whiteStrokePaint);
+
+                canvas.Restore();
+
+            }
+
+```
+
+
 
  * Graphics System: SkiaGraphics Engine C++ project made by Google
  * Uses Immediate mode graphics system - When your program calls graphics drawing functions the graphics are quickly rendered
