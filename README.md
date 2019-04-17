@@ -107,6 +107,16 @@ Example of Back & Forward Nav
 
 ## SkiaSharp
 
+What is SkiaSharp?
+ * Graphics System: SkiaGraphics Engine C++ project made by Google
+ * Uses Immediate mode graphics system - When your program calls graphics drawing functions the graphics are quickly rendered
+ * Alternative: Retain mode graphics system where graphics are persistant and render whenever necessary
+ * Used for 2D graphics and used in Google Chrome, Firefox and Android
+ * Draw Graphics on a SKCancasView or a SKGLView
+ * SKCanvas is used to call all drawing functions such as Translates, Scales, Rotations etc.
+ * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shaders
+ * [SkiaSharp Microsoft Articles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
+
 I picked SkiaSharp because it looked like something we done in Graphics Programming last Semester and would be useful to know for the future
 Almost all the code is commented with what it does, i added extra lines to code bits that were hard to understand at first and required googling/videos to understand
 A example of this is SKPath.ParseSvgPathData for that clock hands, you can set the variables for placing hand, movement speed of hand etc
@@ -163,16 +173,6 @@ Example of Drawing Cat Ears, Whispers and Eyes
 
 ```
 
-
-
- * Graphics System: SkiaGraphics Engine C++ project made by Google
- * Uses Immediate mode graphics system - When your program calls graphics drawing functions the graphics are quickly rendered
- * Alternative: Retain mode graphics system where graphics are persistant and render whenever necessary
- * Used for 2D graphics and used in Google Chrome, Firefox and Android
- * Draw Graphics on a SKCancasView or a SKGLView
- * SKCanvas is used to call all drawing functions such as Translates, Scales, Rotations etc.
- * SKPaint Draw Attributes: Style, Color, StrokeWidth, StrokeCap, StrokeJoin & Shaders
- * [SkiaSharp Microsoft Articles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/graphics/skiasharp/basics/) (Great articles by Microsoft, Spent 8+ Hours learning & fixing errors ended up with a clock at the end)
 
 
 ## Built With
