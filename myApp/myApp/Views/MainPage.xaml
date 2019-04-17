@@ -24,7 +24,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:WeatherPage />
+                <views:WeatherPage NavigationPage.HasNavigationBar="false"/>
             </x:Arguments>
         </NavigationPage>
 

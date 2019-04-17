@@ -13,7 +13,6 @@ namespace myApp
         {
             InitializeComponent();
 
-
             MainPage = new MainPage();
         }
 
